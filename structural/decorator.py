@@ -11,7 +11,9 @@ Decorator/Wrapper Design Pattern:
     that you're not interested
 """
 
+
 ### Example 1 ###
+
 
 class Text:
     def __init__(self, value):
@@ -21,7 +23,7 @@ class Text:
         return self.value
 
 
-class Bolded:
+class Bold:
     def __init__(self, text):
         self.text = text
 
@@ -29,7 +31,7 @@ class Bolded:
         return f'<b>{self.text.render()}</b>'
 
 
-class Italicized:
+class Italic:
     def __init__(self, text):
         self.text = text
 
@@ -38,13 +40,14 @@ class Italicized:
 
 
 print(Text('hello').render())  # 'hello'
-print(Bolded(Text('hello')).render())  # '<b>hello</b>'
-print(Italicized(Text('hello')).render())  # '<i>hello</i>'
-print(Bolded(Italicized(Text('hello'))).render())  # '<b><i>hello</i></b>'
+print(Bold(Text('hello')).render())  # '<b>hello</b>'
+print(Italic(Text('hello')).render())  # '<i>hello</i>'
+print(Bold(Italic(Text('hello'))).render())  # '<b><i>hello</i></b>'
 
 
 
 ### Example 2 ###
+
 
 from abc import ABC, abstractmethod
 
